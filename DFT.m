@@ -10,7 +10,7 @@ taxis = (1/fs)*(1:nsamps);   %Calculate time axis
 %Fourierize it!
 yfftwhole = fft(data); %Get magnitude and phase
 yfft = abs(yfftwhole); %Magnitude
-yfft = yfft/max(yfft); %Normalize
+yfft = yfft/length(yfft); %Normalize by energy
 afft = angle(yfftwhole); %Phase
 yfft = yfft(1:nsamps/2);  %Throw away redundant data
 afft = afft(1:nsamps/2);
